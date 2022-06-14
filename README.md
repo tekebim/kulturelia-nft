@@ -1,2 +1,3 @@
 # kulturelia-nft
-Kulturelia NFT
+
+Project Kulturelia with Open Sea
