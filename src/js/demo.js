@@ -1,5 +1,9 @@
 const URL = 'https://testnets-api.opensea.io/api/v1/assets?order_direction=desc&offset=0&limit=20&include_orders=false';
 
+function init() {
+  getAssets();
+}
+
 function getAssets() {
   let options = {method: 'GET'};
 
@@ -20,5 +24,6 @@ function getAssets() {
     .catch(err => console.error(err));
 }
 
-getAssets();
+init();
+
 
