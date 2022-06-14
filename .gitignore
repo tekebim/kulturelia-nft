@@ -1,2 +1,24 @@
+# Mac OS X
+.DS_Store
+._.*
+._*
+
+# Ignore local editor
+.project
+.settings
 .idea
-test/*
+*.swp
+tags
+nbproject/*
+
+# Windows
+Thumbs.db
+
+# Debugging related
+npm-debug.log
+
+# Dependency packages files
+node_modules/
+
+# Output
+dist/
