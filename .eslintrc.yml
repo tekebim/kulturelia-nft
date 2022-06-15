@@ -20,7 +20,7 @@ rules:
     - error
     - single
     - avoidEscape: true
-    - allowTemplateLiterals: true
+      allowTemplateLiterals: true
   semi:
     - error
     - never
