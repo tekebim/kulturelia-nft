@@ -43,5 +43,4 @@ export default class HomePage extends Vue {
 }
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

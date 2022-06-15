@@ -4,6 +4,7 @@
 Student project
 Digital Campus Workshop 2021
 ```
+
 ![](https://img.shields.io/badge/STUDENT-DC__PARIS-red)
 ![](https://img.shields.io/badge/tailwind-v2.2.16-blue)
 ![ts](https://flat.badgen.net/badge/-/TypeScript/blue?icon=typescript&label)
@@ -11,6 +12,7 @@ Digital Campus Workshop 2021
 ![](https://img.shields.io/badge/Nuxt-v2.15.8-green)
 
 ## Features
+
 - Fetch outside data with axios
 - Add a single tag to a record
 - Play one audio record
@@ -23,25 +25,25 @@ Digital Campus Workshop 2021
 - Stockage persistant in localStorage for Vuex states
 - Generate an export in XML format containing the records checked with a tag applied
 
-
 ## Browser Compatibility
+
 Tested in the following browsers/versions:
 
 - Firefox 25+
 - Chrome 22+
-- Firefox for android* 57+
-- Chrome for android* 63+
+- Firefox for android\* 57+
+- Chrome for android\* 63+
 - Microsoft Edge 12+
 - Safari 11+
 - Opera 18+
 
-## Live demo 
+## Live demo
 
 - Serve static on Plateform As A Service at root `/`
   - [See the demo online](https://interface-lingua-libre.vercel.app)
 - Serve static on hosted Apache in subdirectory `/lingua-libre/`
   - [See the demo online](http://projet.tekmedias.com/lingua-libre/)
-  
+
 ## Build Setup
 
 ```bash
@@ -109,20 +111,22 @@ This directory contains your Vuex store files. Creating a file in this directory
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
 
-
 ## How to host the project
 
 ### Using node server to deploy
+
 ```
-npm run build && npm run 
+npm run build && npm run
 ```
 
-### Build a static version 
+### Build a static version
+
 ```
-npm run generate 
+npm run generate
 ```
 
-If you need to host the project on a subdirectory (ex: lingua-libre), you'll need to define on `.env` file a variable named `DIST_DIR` 
+If you need to host the project on a subdirectory (ex: lingua-libre), you'll need to define on `.env` file a variable named `DIST_DIR`
+
 ```
 # .env file
 DIST_DIR=/lingua-libre
@@ -133,11 +137,12 @@ by default if the `DIST_DIR` is missing, the default value will be `/`
 Then generate your project : `npm run generate`
 
 The configuration of nuxt needed to setup the value for the router and also for axios package to enable this feature.
+
 ```javascript
 // nuxt.config.js
 {
   ...
-  axios: {    
+  axios: {
     baseURL: process.env.DIST_DIR || '/'
   },
   router: {
@@ -154,7 +159,7 @@ Link to the official documentation
 
 ## Using translation (i18n)
 
-Translation files are located in  `📁/lang`
+Translation files are located in `📁/lang`
 
 - 📄`lang/en.json`
 - 📄`lang/fr.json`
@@ -216,8 +221,10 @@ Note : use the same key for both translation files, but change the value
 // inside src/ui/components/test.vue
 <template>
   <div>
-    <h1>{{ $tc('GLOBAL.RECORD', 1}}</h1> // will return singular form
-    <h1>{{ $tc('GLOBAL.RECORDS', 2}}</h1> // will return plural form
+    <h1>{{ $tc('GLOBAL.RECORD', 1}}</h1>
+    // will return singular form
+    <h1>{{ $tc('GLOBAL.RECORDS', 2}}</h1>
+    // will return plural form
   </div>
 </template>
 ```
