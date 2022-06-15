@@ -14,3 +14,15 @@ export async function getAssets() {
 
   return res.data
 }
+
+export async function getCollection() {
+  const res = await axiosOs.get('/collection/kulturelia')
+
+  return res.data
+}
+
+export async function getCollectionAssets() {
+  const res = await axiosOs.get('/collection/kulturelia')
+
+  return res.data
+}
