@@ -1,25 +1,21 @@
 <template>
   <div>
-    <div class="basePage">
-      <div class="pageMain">
-        Kulturelia
-      </div>
+    <div v-if="assets" class="list">
+      <img v-for="asset of assets" :key="asset.id" :src="asset.image_url" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import {Vue, Component} from 'nuxt-property-decorator'
+import { Vue, Component } from 'nuxt-property-decorator'
+import { getAssets } from '@/service/openSea'
 
 @Component
 export default class HomePage extends Vue {
-  head() {
-    return {
-      title: this.$t('GLOBAL.WEBPAGE_TITLE'),
-      meta: [
-        {hid: 'description', name: 'description', content: 'Kulturelia'}
-      ]
-    }
+  assets = null
+
+  async mounted(): Promise<void> {
+    this.assets = (await getAssets()).assets
   }
 }
 </script>
