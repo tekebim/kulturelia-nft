@@ -19,3 +19,9 @@ export async function getCollection() {
 
   return res.data
 }
+
+export async function getCollectionStats() {
+  const res = await axiosOs.get('/collection/kulturelia/stats')
+
+  return res.data
+}
