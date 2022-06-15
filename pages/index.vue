@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
-import { getAssets, getCollection } from '@/service/openSea'
+import { getAssets, getCollection } from '~/service/openSea'
 
 interface Asset {
   image_url: string | null

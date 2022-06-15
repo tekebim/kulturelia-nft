@@ -6,22 +6,15 @@ const axiosOs = axios.create({
 
 export async function getAssets() {
   const res = await axiosOs.get('/assets', {
-    order_direction: 'dec',
-    offset: 0,
-    limit: 20,
-    include_orders: false,
+    params: {
+      collection: 'kulturelia',
+    },
   })
 
   return res.data
 }
 
 export async function getCollection() {
-  const res = await axiosOs.get('/collection/kulturelia')
-
-  return res.data
-}
-
-export async function getCollectionAssets() {
   const res = await axiosOs.get('/collection/kulturelia')
 
   return res.data
