@@ -22,8 +22,9 @@ export default class Menu extends Vue {}
 
 <style lang="scss">
 .menu {
-  background: grey;
   width: 100vw;
-  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>
