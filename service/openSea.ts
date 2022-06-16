@@ -1,5 +1,19 @@
 import axios from 'axios'
 
+export interface Asset {
+  token_id: string
+  image_url: string | null
+}
+
+export interface Collection {
+  name: string
+  slug: string
+  description: string
+  external_url: string
+  image_url: string | null
+  stats: Record<string, number>
+}
+
 const axiosOs = axios.create({
   baseURL: 'https://testnets-api.opensea.io/api/v1',
 })
@@ -12,14 +26,12 @@ const sleep = (ms: number): Promise<void> =>
  * Await 2sec between each call.
  * This function is a workaround to manage rate limit of open sea test api.
  */
-export async function fetchLoop<T>(fn: () => Promise<T>) {
+export async function fetchLoop<T>(fn: () => Promise<T>): Promise<T> {
   try {
     const res = await fn()
     return res
   } catch (err: any) {
-    const errCode = err.response?.status
-
-    if (errCode !== 429) {
+    if (err.response?.status !== 429) {
       throw err
     }
 
@@ -28,27 +40,18 @@ export async function fetchLoop<T>(fn: () => Promise<T>) {
   }
 }
 
-// TODO: type
-export async function getAssets() {
+export async function getAssets(): Promise<Asset[]> {
   const res = await axiosOs.get('/assets', {
     params: {
       collection: 'kulturelia',
     },
   })
 
-  return res.data
+  return res.data.assets
 }
 
-// TODO: type
-export async function getCollection() {
+export async function getCollection(): Promise<Collection> {
   const res = await axiosOs.get('/collection/kulturelia')
 
-  return res.data
-}
-
-// TODO: type
-export async function getCollectionStats() {
-  const res = await axiosOs.get('/collection/kulturelia/stats')
-
-  return res.data
+  return res.data.collection
 }

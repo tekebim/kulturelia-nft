@@ -1,11 +1,11 @@
 <template>
   <div>
-    {{ collectionStats }}
+    <div v-if="collection">{{ collection.stats }}</div>
     <img v-if="collection" :src="collection.banner_image_url" />
     <div v-if="assets" class="list">
       <img
         v-for="asset of formatedAssets"
-        :key="asset.id"
+        :key="asset.token_id"
         :src="asset.image_url"
       />
     </div>
@@ -17,21 +17,17 @@ import { Vue, Component } from 'nuxt-property-decorator'
 import {
   getAssets,
   getCollection,
-  getCollectionStats,
   fetchLoop,
+  Asset,
+  Collection,
 } from '~/service/openSea'
-
-interface Asset {
-  image_url: string | null
-}
 
 const DEFAULT_IMG =
   'https://img.seadn.io/files/d67477e51780cdeaf45fd96d97b1dfa9.png?fit=max&auto=format&h=720&w=720'
 
 @Component
 export default class HomePage extends Vue {
-  collection = null
-  collectionStats = null
+  collection: Collection | null = null
   assets: Asset[] | null = null
 
   get formatedAssets(): Asset[] | null {
@@ -47,9 +43,8 @@ export default class HomePage extends Vue {
   }
 
   async mounted(): Promise<void> {
-    this.assets = (await fetchLoop(getAssets)).assets
-    this.collection = (await fetchLoop(getCollection)).collection
-    this.collectionStats = (await fetchLoop(getCollectionStats)).stats
+    this.collection = await fetchLoop(getCollection)
+    this.assets = await fetchLoop(getAssets)
   }
 }
 </script>
