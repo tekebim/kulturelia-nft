@@ -16,18 +16,18 @@
         </h2>
         <span class="trace"></span>
         <p class="text-3xl">{{ asset.name }}</p>
-        <div class="grid grid-cols-2">
-          <p class="text-lg">2018</p>
-          <span class="border bg-green-50 border-green-400 text-green-400 rounded-xl px-2 py-1 text-xs">Disponible</span>
+        <div class="grid grid-flow-col w-max gap-3 mb-2">
+          <p class="text-lg inline-block">2018</p>
+          <span class="border bg-green-50 border-green-400 text-green-400 rounded-xl px-2 py-1 text-xs inline-block">Disponible</span>
         </div>
-        <p class="text-sm">35cm x 35cm x 30cm (14" x 14" x 12")</p>
-        <div>
+        <p class="text-sm mb-2">35cm x 35cm x 30cm (14" x 14" x 12")</p>
+        <div class="grid grid-flow-col w-max place-items-center gap-3 my-9">
           <img
             src="/img/ethereum_logo.png"
             alt="ethereum"
             class="h-12 inline-block"
           />
-          <p class="text-3xl inline-block">0,2 eth</p>
+          <p class="text-3xl font-semibold inline-block">0,2 eth</p>
         </div>
         <div>
           <a href="" class="btn">Cette oeuvre m'interese</a>
@@ -107,7 +107,7 @@
           <!-- Token ID -->
           <li>
             <p class="inline-block">Token ID :</p>
-            <p class="inline-block font-bold">{{ asset.token_id}}</p>
+            <p class="inline-block font-bold truncate ...">{{ asset.token_id}}</p>
           </li>
 
           <!-- Token Standard-->
@@ -169,6 +169,10 @@ export default class ArtAsset extends Vue {
 
 .h3 {
   @apply font-semibold text-3xl;
+}
+
+.btn{
+  @apply px-11 py-4 bg-gray-800 hover:bg-gray-600 inline-block text-white text-base 
 }
 </style>
 
