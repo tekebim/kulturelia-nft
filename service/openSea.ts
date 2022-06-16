@@ -3,6 +3,12 @@ import axios from 'axios'
 export interface Asset {
   token_id: string
   image_url: string | null
+  id: number
+  num_sales: number
+  image_preview_url: string | null
+  image_thumbnail_url: string | null
+  image_original_url: string | null
+  name: string
 }
 
 export interface Collection {
