@@ -5,7 +5,7 @@
       class="desktop-menu"
     />
     <MobileMenu v-else class="mobile-menu" />
-    <div class="border-solid border-l border-gray-200 px-5">
+    <div class="border-solid border-l border-gray-200 px-5 w-full">
       <Header />
       <Nuxt />
     </div>
