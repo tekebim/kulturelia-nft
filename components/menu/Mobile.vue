@@ -34,7 +34,7 @@ export default class Menu extends Vue {}
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5rem;
+  padding: 2rem 1.5rem;
 }
 
 .links {
