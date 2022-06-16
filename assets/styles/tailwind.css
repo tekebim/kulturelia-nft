@@ -17,6 +17,7 @@
   --color-bg-backgroundBlock-dark: #21212c;
 }
 
+
 @layer base {
   html {
     font-family: Montserrat, system-ui, sans-serif;

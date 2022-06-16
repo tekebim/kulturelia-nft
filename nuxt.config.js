@@ -32,8 +32,8 @@ export default {
 
   googleFonts: {
     families: {
-      Montserrat: true,
-      'Cormorant Garamond': true,
+      Montserrat: [400, 500, 600, 700],
+      'Cormorant Garamond': [400, 500, 600, 700],
     }
   },
 
