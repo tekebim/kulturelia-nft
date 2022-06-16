@@ -4,7 +4,7 @@
       <header>
         <nav class="nav p-5">
           <div class="grid md:grid-cols-2 ">
-            <a class="nav__item brand-title cormorant col-span-1 text-5xl self-center" href="#" @click.prevent.self>KULTURELIA</a>
+            <a href="#" class="nav__item brand-title cormorant col-span-1 text-5xl self-center" @click.prevent.self>KULTURELIA</a>
             <ul class="my-4 flex justify-around col-span-1">
               <!-- Nombre d'items -->
               <li class="text-center inline-block">
@@ -48,13 +48,12 @@
             dark:bg-gray-800 dark:border-gray-700
           "
         >
-          <nuxt-link :key="asset.id" :to="`/art/${asset.asset_contract.address}/${asset.token_id}`"
-                     class=" inline-block w-full" style="aspect-ratio: 1/1">
+          <nuxt-link :key="asset.id" :to="`/art/${asset.asset_contract.address}/${asset.token_id}`" class=" inline-block w-full" style="aspect-ratio: 1/1">
             <img
               :alt="asset.name"
               :src="asset.image_url"
               class="rounded-t-lg w-full h-full object-cover"
-            />
+              />
             <div class="p-5">
               <h5
                 class="
@@ -84,7 +83,7 @@
 </template>
 
 <script lang="ts">
-import {Vue, Component} from 'nuxt-property-decorator'
+import { Vue, Component } from 'nuxt-property-decorator'
 import {
   getAssets,
   getCollection,
@@ -145,8 +144,6 @@ export default class HomePage extends Vue {
 
   .card-link {
     &:hover {
-      background-color: red;
-
       .card__title {
         @apply underline
       }

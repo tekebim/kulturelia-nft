@@ -2,8 +2,8 @@
   <!-- yarn add --dev @nuxtjs/google-fonts -->
 
   <div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-x-20 m-4">
-      <div class="grid_block mt-auto mb-autogit">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-x-20 m-4 mt-16">
+      <div class="grid_block mt-auto mb-auto">
         <img
           :src="asset.image_preview_url"
           alt=""
@@ -30,7 +30,7 @@
           <p class="text-3xl font-semibold inline-block">0,2 eth</p>
         </div>
         <div>
-          <a href="" class="btn">Cette oeuvre m'interese</a>
+          <a :href="asset.permalink" target="_blank" class="btn">Cette oeuvre m'interese</a>
         </div>
       </div>
       <div class="grid_block">
@@ -105,9 +105,9 @@
           </li>
 
           <!-- Token ID -->
-          <li>
+          <li class="grid grid-flow-col">
             <p class="inline-block">Token ID :</p>
-            <p class="inline-block font-bold truncate ...">{{ asset.token_id}}</p>
+            <p class="inline-block font-bold truncate ... w-5/12">{{ asset.token_id}}</p>
           </li>
 
           <!-- Token Standard-->
@@ -132,6 +132,7 @@
       <div class="md:col-span-2">
         <h3 class="h3">Offers</h3>
         <span class="trace"></span>
+        <p class="m-20 text-center">Pas d'offres proposées</p>
       </div>
     </div>
   </div>
