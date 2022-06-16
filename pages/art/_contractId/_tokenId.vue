@@ -147,7 +147,7 @@ export default class ArtAsset extends Vue {
   async asyncData({ params }) {
     const contractId = params.contractId
     const tokenId = params.tokenId
-    const asset: Asset = await getAnAsset(contractId, tokenId)
+    const asset: Asset = await fetchLoop(getAnAsset, [contractId, tokenId])
 
     return { asset }
   }

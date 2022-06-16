@@ -1,15 +1,44 @@
 <template>
   <div>
-    <div v-if="collection">{{ collection.stats }}</div>
-    <img v-if="collection" :src="collection.banner_image_url" />
-    <div v-if="assets" class="list">
-      <nuxt-link
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div
         v-for="asset of formatedAssets"
         :key="asset.id"
-        :to="`/art/${asset.asset_contract.address}/${asset.token_id}`"
+        class="
+          grid_block
+          max-w-sm
+          bg-white
+          rounded-lg
+          border border-gray-200
+          shadow-md
+          dark:bg-gray-800 dark:border-gray-700
+        "
       >
-        <img :alt="asset.name" :src="asset.image_url" />
-      </nuxt-link>
+        <nuxt-link :key="asset.id" :to="`/art/${slugify(asset.name)}`">
+          <img
+            :alt="asset.name"
+            :src="asset.image_url"
+            class="rounded-t-lg w-full"
+          />
+        </nuxt-link>
+        <div class="p-5">
+          <h5
+            class="
+              mb-2
+              text-2xl
+              font-bold
+              tracking-tight
+              text-gray-900
+              dark:text-white
+            "
+          >
+            {{ asset.name }}
+          </h5>
+          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            Kulturelia, Paris 13ème arrondissement
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -23,6 +52,8 @@ import {
   Asset,
   Collection,
 } from '~/service/openSea'
+
+import slugify from '~/helpers/slugify'
 
 const DEFAULT_IMG =
   'https://img.seadn.io/files/d67477e51780cdeaf45fd96d97b1dfa9.png?fit=max&auto=format&h=720&w=720'
@@ -42,6 +73,10 @@ export default class HomePage extends Vue {
     }
 
     return formatedAssets
+  }
+
+  slugify(element) {
+    return slugify(element)
   }
 
   async mounted(): Promise<void> {
