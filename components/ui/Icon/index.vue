@@ -6,12 +6,13 @@
 import { Vue, Component, Prop } from 'nuxt-property-decorator'
 
 // enum AvailableIcons {
-type AvailableIcons = 'burger' | 'search'
+type AvailableIcons = 'burger' | 'search' | 'kulturelia'
 
 @Component({
   components: {
     burger: () => import('./Burger.vue'),
     search: () => import('./Search.vue'),
+    kulturelia: () => import('./Kulturelia.vue'),
   },
 })
 export default class IconWrapper extends Vue {

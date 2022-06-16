@@ -1,8 +1,8 @@
 <template>
   <div>
     <header>
-      <nav class="nav">
-        <a href="#" class="nav__item" @click.prevent.self> Accueil </a>
+      <nav class="nav p-5">
+        <a href="#" class="nav__item" @click.prevent.self>KULTURELIA</a>
       </nav>
     </header>
   </div>
@@ -23,6 +23,6 @@ export default class Header extends Vue {}
 
 <style scoped lang="scss">
 header {
-  @apply h-full shadow-lg bg-backgroundBlock-light dark:bg-backgroundBlock-dark;
+  @apply h-full border-solid border-b border-gray-200 bg-backgroundBlock-light dark:bg-backgroundBlock-dark;
 }
 </style>
