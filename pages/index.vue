@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 m-5">
       <div
         v-for="asset of formatedAssets"
         :key="asset.id"
@@ -14,11 +14,11 @@
           dark:bg-gray-800 dark:border-gray-700
         "
       >
-        <nuxt-link :key="asset.id" :to="`/art/${asset.asset_contract.address}/${asset.token_id}`">
+        <nuxt-link :key="asset.id" :to="`/art/${asset.asset_contract.address}/${asset.token_id}`" class=" inline-block w-full" style="aspect-ratio: 1/1">
           <img
             :alt="asset.name"
             :src="asset.image_url"
-            class="rounded-t-lg w-full "
+            class="rounded-t-lg w-full h-full object-cover"
           />
         </nuxt-link>
         <div class="p-5">
