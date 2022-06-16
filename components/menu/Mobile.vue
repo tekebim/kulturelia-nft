@@ -2,25 +2,25 @@
   <div class="menu-wrapper">
     <nav class="menu">
       <TransparentButton @click="isOpen = !isOpen">
-        <Icon name="burger" :size="2" />
+        <Icon :size="2" name="burger"/>
       </TransparentButton>
       <TransparentButton>
-        <Icon name="kulturelia" :size="2" />
+        <Icon :size="2" name="kulturelia"/>
       </TransparentButton>
       <TransparentButton>
-        <Icon name="search" :size="2" />
+        <Icon :size="2" name="search"/>
       </TransparentButton>
     </nav>
     <div class="panel-container">
-      <div class="panel" :class="{ active: isOpen }">
-        <MenuLinks class="links" />
+      <div :class="{ active: isOpen }" class="panel">
+        <MenuLinks class="links"/>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator'
+import {Vue, Component} from 'nuxt-property-decorator'
 import MenuLinks from './Links.vue'
 import Icon from '@/components/ui/Icon/index.vue'
 import TransparentButton from '@/components/ui/TransparentButton.vue'
@@ -59,7 +59,11 @@ export default class MobileMenu extends Vue {
   top: 0;
   background: white;
   left: -100%;
+  transform: translateX(-100%);
+  transition: all 1s ease-in;
+
   &.active {
+    transform: translateX(0%);
     left: 0;
   }
 }
