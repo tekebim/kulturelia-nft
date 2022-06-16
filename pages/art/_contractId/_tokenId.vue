@@ -2,20 +2,20 @@
   <!-- yarn add --dev @nuxtjs/google-fonts -->
 
   <div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mx-4">
       <div class="grid_block">
         <img
-          src="https://via.placeholder.com/600"
+          :src="asset.image_preview_url"
           alt=""
-          class="h-full w-auto"
+          class="w-full"
         />
       </div>
       <div class="grid_block grid content-center">
-        <h2 class="font-bold text-4xl font-['Cormorant Garamond']">
-          Kulturelia
+        <h2 class="font-bold text-4xl font-['Cormorant Garamond'] capitalize">
+          {{ asset.collection.name }}
         </h2>
         <span class="trace"></span>
-        <p class="text-3xl">LINUX OPEN SOURCE SUMMIT</p>
+        <p class="text-3xl">{{ asset.name }}</p>
         <div>
           <p class="text-lg">2018</p>
           <span>Disponible</span>
@@ -38,13 +38,7 @@
         <span class="trace"></span>
         <!-- Description -->
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pharetra
-          amet, sem aliquam urna malesuada gravida pretium vel, eu. Integer
-          suspendisse nisl morbi at placerat viverra. Pellentesque adipiscing
-          leo duis adipiscing sit. Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Pharetra amet, sem aliquam urna malesuada gravida
-          pretium vel, eu. Integer suspendisse nisl morbi at placerat viverra.
-          Pellentesque adipiscing leo duis adipiscing sit.
+          {{ asset.description }}
         </p>
       </div>
       <div class="grid_block">
@@ -53,7 +47,7 @@
         <div>
           <!-- Profil de l'artiste -->
           <img
-            src="https://via.placeholder.com/100"
+            :src="asset.creator.profile_img_url"
             alt=""
             class="rounded-full h-12 w-12 inline-block mr-4"
           />
@@ -113,7 +107,7 @@
           <!-- Token ID -->
           <li>
             <p class="inline-block">Token ID :</p>
-            <p class="inline-block font-bold">2o5f9jCsgfgHVKna</p>
+            <p class="inline-block font-bold">{{ asset.token_id}}</p>
           </li>
 
           <!-- Token Standard-->
