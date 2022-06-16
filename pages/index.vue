@@ -3,11 +3,13 @@
     <div v-if="collection">{{ collection.stats }}</div>
     <img v-if="collection" :src="collection.banner_image_url" />
     <div v-if="assets" class="list">
-      <img
-        v-for="asset of formatedAssets"
-        :key="asset.token_id"
-        :src="asset.image_url"
-      />
+      <nuxt-link v-for="asset of formatedAssets"
+                 :key="asset.id" :to="`/art/${slugify(asset.name)}`">
+        <img
+          :alt="asset.name"
+          :src="asset.image_url"
+        />
+      </nuxt-link>
     </div>
   </div>
 </template>
@@ -21,6 +23,18 @@ import {
   Asset,
   Collection,
 } from '~/service/openSea'
+
+import slugify from "~/helpers/slugify";
+
+interface Asset {
+  image_url: string | null
+  id: number
+  num_sales: number
+  image_preview_url: string | null
+  image_thumbnail_url: string | null
+  image_original_url: string | null
+  name: string
+}
 
 const DEFAULT_IMG =
   'https://img.seadn.io/files/d67477e51780cdeaf45fd96d97b1dfa9.png?fit=max&auto=format&h=720&w=720'
@@ -40,6 +54,10 @@ export default class HomePage extends Vue {
     }
 
     return formatedAssets
+  }
+
+  slugify(element) {
+    return slugify(element);
   }
 
   async mounted(): Promise<void> {
