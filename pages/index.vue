@@ -6,7 +6,7 @@
       <nuxt-link
         v-for="asset of formatedAssets"
         :key="asset.id"
-        :to="`/art/${slugify(asset.name)}`"
+        :to="`/art/${asset.asset_contract.address}/${asset.token_id}`"
       >
         <img :alt="asset.name" :src="asset.image_url" />
       </nuxt-link>
@@ -23,8 +23,6 @@ import {
   Asset,
   Collection,
 } from '~/service/openSea'
-
-import slugify from '~/helpers/slugify'
 
 const DEFAULT_IMG =
   'https://img.seadn.io/files/d67477e51780cdeaf45fd96d97b1dfa9.png?fit=max&auto=format&h=720&w=720'
@@ -44,10 +42,6 @@ export default class HomePage extends Vue {
     }
 
     return formatedAssets
-  }
-
-  slugify(element) {
-    return slugify(element)
   }
 
   async mounted(): Promise<void> {
