@@ -1,14 +1,16 @@
 <template>
   <nav class="menu">
     <header class="header">
-      <icon name="kulturelia" size="7" />
+      <nuxt-link to="/">
+        <icon name="kulturelia" size="7"/>
+      </nuxt-link>
     </header>
-    <MenuLinks />
+    <MenuLinks/>
   </nav>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator'
+import {Vue, Component} from 'nuxt-property-decorator'
 import MenuLinks from './Links.vue'
 import KultureliaLogo from '~/components/ui/Icon/Kulturelia.vue'
 import Icon from '@/components/ui/Icon/index.vue'
@@ -20,7 +22,8 @@ import Icon from '@/components/ui/Icon/index.vue'
     MenuLinks,
   },
 })
-export default class Menu extends Vue {}
+export default class Menu extends Vue {
+}
 </script>
 
 <style lang="scss" scoped>
