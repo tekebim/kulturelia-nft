@@ -2,8 +2,8 @@
   <!-- yarn add --dev @nuxtjs/google-fonts -->
 
   <div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 m-4">
-      <div class="grid_block mt-auto mb-autogit ">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-x-20 m-4">
+      <div class="grid_block mt-auto mb-autogit">
         <img
           :src="asset.image_preview_url"
           alt=""
@@ -15,7 +15,7 @@
           {{ asset.collection.name }}
         </h2>
         <span class="trace"></span>
-        <p class="text-3xl">{{ asset.name }}</p>
+        <p class="text-3xl cormorant mb-2">{{ asset.name }}</p>
         <div class="grid grid-flow-col w-max gap-3 mb-2">
           <p class="text-lg inline-block">2018</p>
           <span class="border bg-green-50 border-green-400 text-green-400 rounded-xl px-2 py-1 text-xs inline-block">Disponible</span>
@@ -175,8 +175,5 @@ export default class ArtAsset extends Vue {
   @apply px-11 py-4 bg-gray-800 hover:bg-gray-600 inline-block text-white text-base 
 }
 
-// .cormorant{
-//   font-family: 'Cormorant Garamond', system-ui, sans-serif;
-// }
 </style>
 
