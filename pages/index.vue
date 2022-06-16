@@ -1,7 +1,7 @@
 <template>
   <div>
-    {{ collectionStats }}
-    <img v-if="collection" :src="collection.banner_image_url"/>
+    <div v-if="collection">{{ collection.stats }}</div>
+    <img v-if="collection" :src="collection.banner_image_url" />
     <div v-if="assets" class="list">
       <nuxt-link v-for="asset of formatedAssets"
                  :key="asset.id" :to="`/art/${slugify(asset.name)}`">
@@ -15,12 +15,13 @@
 </template>
 
 <script lang="ts">
-import {Vue, Component} from 'nuxt-property-decorator'
+import { Vue, Component } from 'nuxt-property-decorator'
 import {
   getAssets,
   getCollection,
-  getCollectionStats,
   fetchLoop,
+  Asset,
+  Collection,
 } from '~/service/openSea'
 
 import slugify from "~/helpers/slugify";
@@ -40,8 +41,7 @@ const DEFAULT_IMG =
 
 @Component
 export default class HomePage extends Vue {
-  collection = null
-  collectionStats = null
+  collection: Collection | null = null
   assets: Asset[] | null = null
 
   get formatedAssets(): Asset[] | null {
@@ -61,9 +61,8 @@ export default class HomePage extends Vue {
   }
 
   async mounted(): Promise<void> {
-    this.assets = (await fetchLoop(getAssets)).assets
-    this.collection = (await fetchLoop(getCollection)).collection
-    this.collectionStats = (await fetchLoop(getCollectionStats)).stats
+    this.collection = await fetchLoop(getCollection)
+    this.assets = await fetchLoop(getAssets)
   }
 }
 </script>
