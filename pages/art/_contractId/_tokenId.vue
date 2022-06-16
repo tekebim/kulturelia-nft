@@ -2,7 +2,7 @@
   <!-- yarn add --dev @nuxtjs/google-fonts -->
 
   <div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mx-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 m-4">
       <div class="grid_block">
         <img
           :src="asset.image_preview_url"
@@ -16,9 +16,9 @@
         </h2>
         <span class="trace"></span>
         <p class="text-3xl">{{ asset.name }}</p>
-        <div>
+        <div class="grid grid-cols-2">
           <p class="text-lg">2018</p>
-          <span>Disponible</span>
+          <span class="border bg-green-50 border-green-400 text-green-400 rounded-xl px-2 py-1 text-xs">Disponible</span>
         </div>
         <p class="text-sm">35cm x 35cm x 30cm (14" x 14" x 12")</p>
         <div>
