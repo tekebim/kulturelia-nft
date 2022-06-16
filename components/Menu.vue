@@ -26,6 +26,6 @@ export default class Menu extends Vue {}
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 1.5rem;
 }
 </style>

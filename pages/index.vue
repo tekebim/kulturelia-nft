@@ -4,7 +4,15 @@
       <div
         v-for="asset of formatedAssets"
         :key="asset.id"
-        class="grid_block max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
+        class="
+          grid_block
+          max-w-sm
+          bg-white
+          rounded-lg
+          border border-gray-200
+          shadow-md
+          dark:bg-gray-800 dark:border-gray-700
+        "
       >
         <nuxt-link :key="asset.id" :to="`/art/${asset.asset_contract.address}/${asset.token_id}`">
           <img
@@ -15,9 +23,16 @@
         </nuxt-link>
         <div class="p-5">
           <h5
-            class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+            class="
+              mb-2
+              text-2xl
+              font-bold
+              tracking-tight
+              text-gray-900
+              dark:text-white
+            "
           >
-            {{asset.name}}
+            {{ asset.name }}
           </h5>
           <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
             Kulturelia, Paris 13ème arrondissement
@@ -39,16 +54,6 @@ import {
 } from '~/service/openSea'
 
 import slugify from '~/helpers/slugify'
-
-interface Asset {
-  image_url: string | null
-  id: number
-  num_sales: number
-  image_preview_url: string | null
-  image_thumbnail_url: string | null
-  image_original_url: string | null
-  name: string
-}
 
 const DEFAULT_IMG =
   'https://img.seadn.io/files/d67477e51780cdeaf45fd96d97b1dfa9.png?fit=max&auto=format&h=720&w=720'
