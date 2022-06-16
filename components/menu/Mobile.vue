@@ -1,7 +1,7 @@
 <template>
   <div class="menu-wrapper">
     <nav class="menu">
-      <TransparentButton>
+      <TransparentButton @click="isOpen = !isOpen">
         <Icon name="burger" :size="2" />
       </TransparentButton>
       <TransparentButton>
@@ -11,7 +11,11 @@
         <Icon name="search" :size="2" />
       </TransparentButton>
     </nav>
-    <MenuLinks class="links" />
+    <div class="panel-container">
+      <div class="panel" :class="{ active: isOpen }">
+        <MenuLinks class="links" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -28,25 +32,36 @@ import TransparentButton from '@/components/ui/TransparentButton.vue'
     TransparentButton,
   },
 })
-export default class Menu extends Vue {}
+export default class MobileMenu extends Vue {
+  isOpen: boolean = false
+}
 </script>
 
 <style lang="scss" scoped>
-.menu-wrapper {
-  position: relative;
-}
-
 .menu {
   background: white;
   width: 100vw;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem 1.5rem;
+  padding: 0 1.5rem;
 }
 
-.links {
-  height: 100%;
+.panel-container {
+  position: relative;
+}
+
+.panel {
+  height: calc(100vh - 100px);
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  background: white;
+  left: -100%;
+  &.active {
+    left: 0;
+  }
 }
 </style>
 
