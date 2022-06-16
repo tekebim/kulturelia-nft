@@ -1,8 +1,19 @@
 import axios from 'axios'
 
+interface Contract {
+  address: string
+}
+
 export interface Asset {
   token_id: string
   image_url: string | null
+  id: number
+  num_sales: number
+  image_preview_url: string | null
+  image_thumbnail_url: string | null
+  image_original_url: string | null
+  name: string
+  asset_contract: Contract
 }
 
 export interface Collection {
@@ -54,4 +65,13 @@ export async function getCollection(): Promise<Collection> {
   const res = await axiosOs.get('/collection/kulturelia')
 
   return res.data.collection
+}
+
+export async function getAnAsset(
+  contractAdress: string,
+  tokenId: string
+): Promise<Asset> {
+  const res = await axiosOs.get(`/asset/${contractAdress}/${tokenId}`)
+
+  return res.data
 }
