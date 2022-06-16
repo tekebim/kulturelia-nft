@@ -3,7 +3,7 @@
 
   <div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 m-4">
-      <div class="grid_block">
+      <div class="grid_block mt-auto mb-autogit ">
         <img
           :src="asset.image_preview_url"
           alt=""
@@ -11,7 +11,7 @@
         />
       </div>
       <div class="grid_block grid content-center">
-        <h2 class="font-bold text-4xl font-['Cormorant Garamond'] capitalize">
+        <h2 class="font-bold text-4xl cormorant capitalize">
           {{ asset.collection.name }}
         </h2>
         <span class="trace"></span>
@@ -174,5 +174,9 @@ export default class ArtAsset extends Vue {
 .btn{
   @apply px-11 py-4 bg-gray-800 hover:bg-gray-600 inline-block text-white text-base 
 }
+
+// .cormorant{
+//   font-family: 'Cormorant Garamond', system-ui, sans-serif;
+// }
 </style>
 
