@@ -1,18 +1,23 @@
 <template>
   <nav class="menu">
-    <KultureliaLogo />
+    <header class="header">
+      <icon name="kulturelia" size="7" />
+    </header>
+    <MenuLinks />
   </nav>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
-import KultureliaLogo from '@/assets/logos/Kulturelia.vue'
+import MenuLinks from './Links.vue'
+import KultureliaLogo from '~/components/ui/Icon/Kulturelia.vue'
 import Icon from '@/components/ui/Icon/index.vue'
 
 @Component({
   components: {
     KultureliaLogo,
     Icon,
+    MenuLinks,
   },
 })
 export default class Menu extends Vue {}
@@ -20,8 +25,17 @@ export default class Menu extends Vue {}
 
 <style lang="scss" scoped>
 .menu {
-  width: 30vw;
-  border-right: 1px solid, grey;
+  width: 360px;
+  border-right: 1px solid #888888;
   height: 100vh;
+}
+
+.header {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #888888;
 }
 </style>

@@ -1,14 +1,14 @@
 <template>
   <nav class="menu">
     <Icon name="burger" :size="2" />
-    <KultureliaLogo />
+    <Icon name="kulturelia" :size="2" />
     <Icon name="search" :size="2" />
   </nav>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
-import KultureliaLogo from '@/assets/logos/Kulturelia.vue'
+import KultureliaLogo from '~/components/ui/Icon/Kulturelia.vue'
 import Icon from '@/components/ui/Icon/index.vue'
 
 @Component({
