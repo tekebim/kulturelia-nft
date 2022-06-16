@@ -1,25 +1,24 @@
 <template>
   <div>
-    <nav>This is a dummy nav</nav>
+    <Menu />
     <Nuxt />
   </div>
 </template>
 
 <script lang="ts">
-export default {
+import { Vue, Component } from 'nuxt-property-decorator'
+import Menu from '@/components/Menu.vue'
+
+@Component({
   head() {
     return {
       title: `Kultura`,
       meta: [{ hid: 'description', name: 'description', content: 'Kultura' }],
     }
   },
-}
+  components: {
+    Menu,
+  },
+})
+export default class DefaultLayout extends Vue {}
 </script>
-
-<style lang="scss" scoped>
-nav {
-  background: grey;
-  width: 100vw;
-  height: 100px;
-}
-</style>>
