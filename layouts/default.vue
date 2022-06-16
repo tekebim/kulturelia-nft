@@ -5,7 +5,10 @@
       class="desktop-menu"
     />
     <MobileMenu v-else class="mobile-menu" />
-    <Nuxt />
+    <div class="border-solid border-l border-gray-200 px-5">
+      <Header />
+      <Nuxt />
+    </div>
   </div>
 </template>
 
@@ -13,6 +16,7 @@
 import { Component } from 'nuxt-property-decorator'
 import DesktopMenu from '~/components/menu/Desktop.vue'
 import MobileMenu from '~/components/menu/Mobile.vue'
+import Header from '~/components/Header.vue'
 import WindowSizeMixin from '@/components/utils/WindowSizeMixin'
 
 @Component({
@@ -27,6 +31,7 @@ import WindowSizeMixin from '@/components/utils/WindowSizeMixin'
   components: {
     DesktopMenu,
     MobileMenu,
+    Header
   },
 })
 export default class DefaultLayout extends WindowSizeMixin {}
