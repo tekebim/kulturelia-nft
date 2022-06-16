@@ -37,9 +37,9 @@ const sleep = (ms: number): Promise<void> =>
  * Await 2sec between each call.
  * This function is a workaround to manage rate limit of open sea test api.
  */
-export async function fetchLoop<T>(
-  fn: (...args: unknown[]) => Promise<T>,
-  args?: unknown[]
+export async function fetchLoop<T, U>(
+  fn: (...args: U[]) => Promise<T>,
+  args?: U[]
 ): Promise<T> {
   try {
     const res = args ? await fn(...args) : await fn()
