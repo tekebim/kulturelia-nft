@@ -1,8 +1,8 @@
 <template>
   <nav class="menu">
-    <Icon name="burger" />
+    <Icon name="burger" :size="2" />
     <KultureliaLogo />
-    <Icon name="search" />
+    <Icon name="search" :size="2" />
   </nav>
 </template>
 
@@ -25,6 +25,7 @@ export default class Menu extends Vue {}
   width: 100vw;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 1rem;
 }
 </style>
