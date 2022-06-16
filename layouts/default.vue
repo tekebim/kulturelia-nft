@@ -47,6 +47,7 @@ export default class DefaultLayout extends WindowSizeMixin {}
 
   .mobile-menu {
     position: sticky;
+    top: 0;
   }
 }
 </style>>
