@@ -1,37 +1,44 @@
 <template>
-  <nav class="menu">
-    <div id="menuBurger">
-      <Icon :size="2" name="burger"/>
-      <Icon :size="2" name="kulturelia"/>
-      <Icon :size="2" name="search"/>
-    </div>
-  </nav>
+  <div class="menu-wrapper">
+    <nav class="menu">
+      <Icon name="burger" :size="2" />
+      <Icon name="kulturelia" :size="2" />
+      <Icon name="search" :size="2" />
+    </nav>
+    <MenuLinks class="links" />
+  </div>
 </template>
 
 <script lang="ts">
-import {Vue, Component} from 'nuxt-property-decorator'
-import KultureliaLogo from '~/components/ui/Icon/Kulturelia.vue'
+import { Vue, Component } from 'nuxt-property-decorator'
+import MenuLinks from './Links.vue'
 import Icon from '@/components/ui/Icon/index.vue'
 
 @Component({
   components: {
-    KultureliaLogo,
     Icon,
+    MenuLinks,
   },
 })
-
-export default class Menu extends Vue {
-
-}
+export default class Menu extends Vue {}
 </script>
 
 <style lang="scss" scoped>
+.menu-wrapper {
+  position: relative;
+}
+
 .menu {
+  background: white;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5rem;
+  padding: 2rem 1.5rem;
+}
+
+.links {
+  height: 100%;
 }
 </style>
 
