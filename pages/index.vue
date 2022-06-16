@@ -1,5 +1,6 @@
 <template>
   <div>
+    {{ collectionStats }}
     <img v-if="collection" :src="collection.banner_image_url" />
     <div v-if="assets" class="list">
       <img
@@ -13,7 +14,12 @@
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
-import { getAssets, getCollection } from '~/service/openSea'
+import {
+  getAssets,
+  getCollection,
+  getCollectionStats,
+  fetchLoop,
+} from '~/service/openSea'
 
 interface Asset {
   image_url: string | null
@@ -25,6 +31,7 @@ const DEFAULT_IMG =
 @Component
 export default class HomePage extends Vue {
   collection = null
+  collectionStats = null
   assets: Asset[] | null = null
 
   get formatedAssets(): Asset[] | null {
@@ -40,8 +47,9 @@ export default class HomePage extends Vue {
   }
 
   async mounted(): Promise<void> {
-    this.assets = (await getAssets()).assets
-    this.collection = (await getCollection()).collection
+    this.assets = (await fetchLoop(getAssets)).assets
+    this.collection = (await fetchLoop(getCollection)).collection
+    this.collectionStats = (await fetchLoop(getCollectionStats)).stats
   }
 }
 </script>
