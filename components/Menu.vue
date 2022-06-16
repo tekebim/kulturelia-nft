@@ -1,11 +1,22 @@
 <template>
-  <nav class="menu">This is a dummy nav</nav>
+  <nav class="menu">
+    <Icon name="burger" />
+    <KultureliaLogo />
+    <Icon name="search" />
+  </nav>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
+import KultureliaLogo from '@/assets/logos/Kulturelia.vue'
+import Icon from '@/components/ui/Icon/index.vue'
 
-@Component
+@Component({
+  components: {
+    KultureliaLogo,
+    Icon,
+  },
+})
 export default class Menu extends Vue {}
 </script>
 
