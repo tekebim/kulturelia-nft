@@ -14,11 +14,11 @@
           dark:bg-gray-800 dark:border-gray-700
         "
       >
-        <nuxt-link :key="asset.id" :to="`/art/${slugify(asset.name)}`">
+        <nuxt-link :key="asset.id" :to="`/art/${asset.asset_contract.address}/${asset.token_id}`">
           <img
             :alt="asset.name"
             :src="asset.image_url"
-            class="rounded-t-lg w-full"
+            class="rounded-t-lg w-full "
           />
         </nuxt-link>
         <div class="p-5">
