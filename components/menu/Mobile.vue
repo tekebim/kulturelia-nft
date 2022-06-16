@@ -8,13 +8,13 @@
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
-import KultureliaLogo from '~/components/ui/Icon/Kulturelia.vue'
+import MenuLinks from './Links.vue'
 import Icon from '@/components/ui/Icon/index.vue'
 
 @Component({
   components: {
-    KultureliaLogo,
     Icon,
+    MenuLinks,
   },
 })
 export default class Menu extends Vue {}
