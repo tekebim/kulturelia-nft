@@ -4,7 +4,7 @@
       <header>
         <nav class="nav p-5">
           <div class="grid md:grid-cols-2 ">
-            <a href="#" class="nav__item brand-title cormorant col-span-1 text-5xl self-center" @click.prevent.self>KULTURELIA</a>
+            <a class="nav__item brand-title cormorant col-span-1 text-5xl self-center" href="#" @click.prevent.self>KULTURELIA</a>
             <ul class="my-4 flex justify-around col-span-1">
               <!-- Nombre d'items -->
               <li class="text-center inline-block">
@@ -32,10 +32,9 @@
       </header>
     </div>
     <div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 m-5">
+      <div v-if="formatedAssets !== null" class="grid grid-cols-1 md:grid-cols-3 gap-8 m-5">
         <div
           v-for="asset of formatedAssets"
-          v-if="isCollectionLoaded"
           :key="asset.id"
           class="
             card-link
@@ -48,12 +47,13 @@
             dark:bg-gray-800 dark:border-gray-700
           "
         >
-          <nuxt-link :key="asset.id" :to="`/art/${asset.asset_contract.address}/${asset.token_id}`" class=" inline-block w-full" style="aspect-ratio: 1/1">
+          <nuxt-link :key="asset.id" :to="`/art/${asset.asset_contract.address}/${asset.token_id}`"
+                     class=" inline-block w-full" style="aspect-ratio: 1/1">
             <img
               :alt="asset.name"
               :src="asset.image_url"
               class="rounded-t-lg w-full h-full object-cover"
-              />
+            />
             <div class="p-5">
               <h5
                 class="
@@ -74,16 +74,16 @@
             </div>
           </nuxt-link>
         </div>
-        <div v-else class="card-loader">
-          <LoaderIcon/>
-        </div>
+      </div>
+      <div v-else class="flex justify-center p-20 card-loader">
+        <LoaderIcon/>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator'
+import {Vue, Component} from 'nuxt-property-decorator'
 import {
   getAssets,
   getCollection,
@@ -106,10 +106,6 @@ const DEFAULT_IMG =
 export default class HomePage extends Vue {
   collection: Collection | null = null
   assets: Asset[] | null = null
-
-  get isCollectionLoaded(): Boolean {
-    return this.assets !== null
-  }
 
   get formatedAssets(): Asset[] | null {
     if (!this.assets) return null
