@@ -1,19 +1,21 @@
 <template>
   <div>
     {{ collectionStats }}
-    <img v-if="collection" :src="collection.banner_image_url" />
+    <img v-if="collection" :src="collection.banner_image_url"/>
     <div v-if="assets" class="list">
-      <img
-        v-for="asset of formatedAssets"
-        :key="asset.id"
-        :src="asset.image_url"
-      />
+      <nuxt-link v-for="asset of formatedAssets"
+                 :key="asset.id" :to="`/art/${slugify(asset.name)}`">
+        <img
+          :alt="asset.name"
+          :src="asset.image_url"
+        />
+      </nuxt-link>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator'
+import {Vue, Component} from 'nuxt-property-decorator'
 import {
   getAssets,
   getCollection,
@@ -21,8 +23,16 @@ import {
   fetchLoop,
 } from '~/service/openSea'
 
+import slugify from "~/helpers/slugify";
+
 interface Asset {
   image_url: string | null
+  id: number
+  num_sales: number
+  image_preview_url: string | null
+  image_thumbnail_url: string | null
+  image_original_url: string | null
+  name: string
 }
 
 const DEFAULT_IMG =
@@ -44,6 +54,10 @@ export default class HomePage extends Vue {
     }
 
     return formatedAssets
+  }
+
+  slugify(element) {
+    return slugify(element);
   }
 
   async mounted(): Promise<void> {
