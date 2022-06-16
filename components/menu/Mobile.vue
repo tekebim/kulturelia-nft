@@ -20,7 +20,7 @@ import Icon from '@/components/ui/Icon/index.vue'
 export default class Menu extends Vue {}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .menu {
   width: 100vw;
   display: flex;
@@ -29,3 +29,4 @@ export default class Menu extends Vue {}
   padding: 1.5rem;
 }
 </style>
+
