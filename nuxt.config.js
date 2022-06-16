@@ -30,6 +30,13 @@ export default {
     config: {},
   },
 
+  googleFonts: {
+    families: {
+      Montserrat: true,
+      'Cormorant Garamond': true,
+    }
+  },
+
   styleResources: {
     scss: ['./assets/styles/*.scss'],
   },
@@ -47,6 +54,7 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
     '@nuxtjs/composition-api/module',
+    '@nuxtjs/google-fonts',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules

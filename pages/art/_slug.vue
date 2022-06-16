@@ -9,7 +9,7 @@
         <img src="https://via.placeholder.com/600" alt="" class="h-full w-auto">
       </div>
       <div class="grid_block grid content-center">
-        <h2 class="font-bold text-4xl">Kulturelia</h2>
+        <h2 class="font-bold text-4xl font-['Cormorant Garamond']">Kulturelia</h2>
         <span class="trace"></span>
         <p class="text-3xl">LINUX OPEN SOURCE SUMMIT</p>
         <div>
@@ -141,7 +141,7 @@
 
 <style lang="scss">
   .grid_block {
-    @apply inline-block col-span-1
+    @apply col-span-1
   }
 
   .trace {
