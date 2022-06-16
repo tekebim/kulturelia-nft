@@ -1,42 +1,75 @@
 <template>
   <div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 m-5">
-      <div
-        v-for="asset of formatedAssets"
-        :key="asset.id"
-        class="
-          grid_block
-          max-w-sm
-          bg-white
-          rounded-lg
-          border border-gray-200
-          shadow-md
-          dark:bg-gray-800 dark:border-gray-700
-        "
-      >
-        <nuxt-link :key="asset.id" :to="`/art/${asset.asset_contract.address}/${asset.token_id}`" class=" inline-block w-full" style="aspect-ratio: 1/1">
-          <img
-            :alt="asset.name"
-            :src="asset.image_url"
-            class="rounded-t-lg w-full h-full object-cover"
-          />
-        </nuxt-link>
-        <div class="p-5">
-          <h5
-            class="
-              mb-2
-              text-2xl
-              font-bold
-              tracking-tight
-              text-gray-900
-              dark:text-white
-            "
-          >
-            {{ asset.name }}
-          </h5>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-            Kulturelia, Paris 13ème arrondissement
-          </p>
+    <div>
+      <header>
+        <nav class="nav p-5">
+          <div class="grid md:grid-cols-2 ">
+            <a href="#" class="nav__item brand-title cormorant col-span-1 text-5xl self-center" @click.prevent.self>KULTURELIA</a>
+            <ul class="my-4 flex justify-around col-span-1">
+              <!-- Nombre d'items -->
+              <li class="text-center inline-block">
+                <p class="text-xl font-semibold">20</p>
+                <p class="text-base">Items</p>
+              </li>
+              <!-- Owners -->
+              <li class="text-center inline-block">
+                <p class="text-xl font-semibold">2,3k</p>
+                <p class="text-base">Owners</p>
+              </li>
+              <!-- Floor price -->
+              <li class="text-center inline-block">
+                <p class="text-xl font-semibold">2,3</p>
+                <p class="text-base">Floor price</p>
+              </li>
+              <!-- Total Volume -->
+              <li class="text-center inline-block">
+                <p class="text-xl font-semibold">2,3</p>
+                <p class="text-base">Total Volume</p>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+    </div>
+    <div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 m-5">
+        <div
+          v-for="asset of formatedAssets"
+          :key="asset.id"
+          class="
+            grid_block
+            max-w-sm
+            bg-white
+            rounded-lg
+            border border-gray-200
+            shadow-md
+            dark:bg-gray-800 dark:border-gray-700
+          "
+        >
+          <nuxt-link :key="asset.id" :to="`/art/${asset.asset_contract.address}/${asset.token_id}`" class=" inline-block w-full" style="aspect-ratio: 1/1">
+            <img
+              :alt="asset.name"
+              :src="asset.image_url"
+              class="rounded-t-lg w-full h-full object-cover"
+            />
+          </nuxt-link>
+          <div class="p-5">
+            <h5
+              class="
+                mb-2
+                text-2xl
+                font-bold
+                tracking-tight
+                text-gray-900
+                dark:text-white
+              "
+            >
+              {{ asset.name }}
+            </h5>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              Kulturelia, Paris 13ème arrondissement
+            </p>
+          </div>
         </div>
       </div>
     </div>
