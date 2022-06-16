@@ -1,8 +1,8 @@
-# lingua-libre record checker
+# Marketplace for Kulturelia
 
 ```
 Student project
-Digital Campus Workshop 2021
+Digital Campus Maker Week
 ```
 
 ![](https://img.shields.io/badge/STUDENT-DC__PARIS-red)
@@ -13,17 +13,8 @@ Digital Campus Workshop 2021
 
 ## Features
 
-- Fetch outside data with axios
-- Add a single tag to a record
-- Play one audio record
-- Autoplay mode for all audio records
-- Change speed rate for all audio players
-- Set delay (ms) between audios in autoplay mode
-- Shortcuts keyboard to play/pause (space)
-- Shortcuts keyboard to replay active audio (arrow left)
-- Using Vuex store to manage shared values across whole application and accessible for components
-- Stockage persistant in localStorage for Vuex states
-- Generate an export in XML format containing the records checked with a tag applied
+- Presentation of differents projets made by Kulturelia
+- Presentation for each picture 
 
 ## Browser Compatibility
 
@@ -33,16 +24,15 @@ Tested in the following browsers/versions:
 - Chrome 22+
 - Firefox for android\* 57+
 - Chrome for android\* 63+
-- Microsoft Edge 12+
 - Safari 11+
 - Opera 18+
 
 ## Live demo
 
 - Serve static on Plateform As A Service at root `/`
-  - [See the demo online](https://interface-lingua-libre.vercel.app)
+  - [See the demo online]()
 - Serve static on hosted Apache in subdirectory `/lingua-libre/`
-  - [See the demo online](http://projet.tekmedias.com/lingua-libre/)
+  - [See the demo online]()
 
 ## Build Setup
 
