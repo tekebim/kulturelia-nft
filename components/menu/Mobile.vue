@@ -5,7 +5,9 @@
         <Icon :size="2" name="burger"/>
       </TransparentButton>
       <TransparentButton>
-        <Icon :size="2" name="kulturelia"/>
+        <nuxt-link to="/">
+          <Icon :size="2" name="kulturelia"/>
+        </nuxt-link>
       </TransparentButton>
       <TransparentButton>
         <Icon :size="2" name="search"/>
