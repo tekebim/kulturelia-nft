@@ -34,9 +34,9 @@
       </header>
     </div>
     <div>
-      <div v-if="formatedAssets !== null" class="grid grid-cols-1 md:grid-cols-3 gap-8 m-5">
+      <div v-if="assets !== null" class="grid grid-cols-1 md:grid-cols-3 gap-8 m-5">
         <div
-          v-for="asset of formatedAssets"
+          v-for="asset of assets"
           :key="asset.id"
           class="
             card-link
@@ -152,5 +152,9 @@ export default class HomePage extends Vue {
 
     aspect-ratio: 1/1;
   }
+}
+.debug {
+  font-size: 8px;
+  word-wrap: break-word;
 }
 </style>

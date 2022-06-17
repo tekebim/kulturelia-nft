@@ -155,7 +155,8 @@ export default class ArtAsset extends Vue {
 
     // const asset: Asset = await fetchLoop(getAnAsset, [contractId, tokenId])
 
-    this.asset = collectionAssets.assets.find((a) => a.token_id = tokenId)
+    this.asset = collectionAssets.assets.find((a) => a.token_id === tokenId)
+
 
     // return {asset}
   }
