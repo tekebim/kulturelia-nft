@@ -2,7 +2,7 @@
   <!-- yarn add --dev @nuxtjs/google-fonts -->
 
   <div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-x-20 m-4 mt-16">
+    <div v-if="asset" class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-x-20 m-4 mt-16">
       <div class="grid_block mt-auto mb-auto">
         <img
           :src="asset.image_preview_url"
@@ -23,14 +23,14 @@
         <p class="text-sm mb-2">35cm x 35cm x 30cm (14" x 14" x 12")</p>
         <div class="grid grid-flow-col w-max place-items-center gap-3 my-9">
           <img
-            src="/img/ethereum_logo.png"
             alt="ethereum"
             class="h-12 inline-block"
+            src="/img/ethereum_logo.png"
           />
           <p class="text-3xl font-semibold inline-block">0,2 eth</p>
         </div>
         <div>
-          <a :href="asset.permalink" target="_blank" class="btn">Cette oeuvre m'interese</a>
+          <a :href="asset.permalink" class="btn" target="_blank">Cette oeuvre m'interese</a>
         </div>
       </div>
       <div class="grid_block">
@@ -107,7 +107,7 @@
           <!-- Token ID -->
           <li class="grid grid-flow-col">
             <p class="inline-block">Token ID :</p>
-            <p class="inline-block font-bold truncate ... w-5/12">{{ asset.token_id}}</p>
+            <p class="inline-block font-bold truncate ... w-5/12">{{ asset.token_id }}</p>
           </li>
 
           <!-- Token Standard-->
@@ -140,18 +140,37 @@
 
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator'
-import { getAnAsset, fetchLoop, Asset } from '~/service/openSea'
+import {Vue, Component} from 'nuxt-property-decorator'
+import {getAnAsset, fetchLoop, Asset} from '~/service/openSea'
+import collectionAssets from "~/data/collection-assets";
 
 @Component
 export default class ArtAsset extends Vue {
-  async asyncData({ params }) {
+
+  asset: any = false
+
+  async mounted() {
+    const contractId = this.$route.params.contractId
+    const tokenId = this.$route.params.tokenId
+
+    // const asset: Asset = await fetchLoop(getAnAsset, [contractId, tokenId])
+
+    this.asset = collectionAssets.assets.find((a) => a.token_id = tokenId)
+
+    // return {asset}
+  }
+
+  /*
+  async asyncData({params}) {
     const contractId = params.contractId
     const tokenId = params.tokenId
-    const asset: Asset = await fetchLoop(getAnAsset, [contractId, tokenId])
+    // const asset: Asset = await fetchLoop(getAnAsset, [contractId, tokenId])
 
-    return { asset }
+    const asset = collectionAssets.find((a) => a.token_id = tokenId)
+
+    return {asset}
   }
+   */
 }
 </script>
 
@@ -172,8 +191,8 @@ export default class ArtAsset extends Vue {
   @apply font-semibold text-3xl;
 }
 
-.btn{
-  @apply px-11 py-4 bg-gray-800 hover:bg-gray-600 inline-block text-white text-base 
+.btn {
+  @apply px-11 py-4 bg-gray-800 hover:bg-gray-600 inline-block text-white text-base
 }
 
 </style>

@@ -1,6 +1,8 @@
 <template>
   <div>
     <div>
+    </div>
+    <div>
       <header>
         <nav class="nav p-5">
           <div class="grid md:grid-cols-2 ">
@@ -84,6 +86,8 @@
 
 <script lang="ts">
 import {Vue, Component} from 'nuxt-property-decorator'
+import collection from '~/data/collection'
+import collectionAsset from '~/data/collection-assets'
 import {
   getAssets,
   getCollection,
@@ -104,8 +108,8 @@ const DEFAULT_IMG =
   },
 })
 export default class HomePage extends Vue {
-  collection: Collection | null = null
-  assets: Asset[] | null = null
+  collection: any | null = collection
+  assets: any | null = collectionAsset.assets
 
   get formatedAssets(): Asset[] | null {
     if (!this.assets) return null
@@ -124,8 +128,8 @@ export default class HomePage extends Vue {
   }
 
   async mounted(): Promise<void> {
-    this.collection = await fetchLoop(getCollection)
-    this.assets = await fetchLoop(getAssets)
+    // this.collection = await fetchLoop(getCollection)
+    // this.assets = await fetchLoop(getAssets)
   }
 }
 </script>
